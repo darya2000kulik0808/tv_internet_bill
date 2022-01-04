@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tv_internet_bill", "tv_internet_bill\tv_internet_bill.csproj", "{240ADE85-5711-45AB-BE00-7A2AD47857D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_TV_Internet_Billing", "Test_TV_Internet_Billing\Test_TV_Internet_Billing.csproj", "{B4968E7A-FBFD-4EDC-AF50-FF0C88F89A2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB_TV_Internet_Billing", "DB_TV_Internet_Billing\DB_TV_Internet_Billing.csproj", "{87BEE0BD-D323-443D-A585-666AB906E1BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{2745DB5B-2378-4A14-B620-0EBF9630385E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{254DF7C4-46FA-45BB-B483-2B230F14E66B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment", "Payment\Payment.csproj", "{947D650B-2086-4061-8F85-FF235FD1658D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TV_INTERNET_FORMS", "TV_INTERNET_FORMS\TV_INTERNET_FORMS.csproj", "{3DED1577-DFDF-481A-B07E-377669790472}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{240ADE85-5711-45AB-BE00-7A2AD47857D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240ADE85-5711-45AB-BE00-7A2AD47857D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240ADE85-5711-45AB-BE00-7A2AD47857D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240ADE85-5711-45AB-BE00-7A2AD47857D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4968E7A-FBFD-4EDC-AF50-FF0C88F89A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4968E7A-FBFD-4EDC-AF50-FF0C88F89A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4968E7A-FBFD-4EDC-AF50-FF0C88F89A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4968E7A-FBFD-4EDC-AF50-FF0C88F89A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BEE0BD-D323-443D-A585-666AB906E1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BEE0BD-D323-443D-A585-666AB906E1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BEE0BD-D323-443D-A585-666AB906E1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BEE0BD-D323-443D-A585-666AB906E1BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2745DB5B-2378-4A14-B620-0EBF9630385E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2745DB5B-2378-4A14-B620-0EBF9630385E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2745DB5B-2378-4A14-B620-0EBF9630385E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2745DB5B-2378-4A14-B620-0EBF9630385E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{254DF7C4-46FA-45BB-B483-2B230F14E66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{254DF7C4-46FA-45BB-B483-2B230F14E66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{254DF7C4-46FA-45BB-B483-2B230F14E66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{254DF7C4-46FA-45BB-B483-2B230F14E66B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947D650B-2086-4061-8F85-FF235FD1658D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947D650B-2086-4061-8F85-FF235FD1658D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947D650B-2086-4061-8F85-FF235FD1658D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947D650B-2086-4061-8F85-FF235FD1658D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DED1577-DFDF-481A-B07E-377669790472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DED1577-DFDF-481A-B07E-377669790472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DED1577-DFDF-481A-B07E-377669790472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DED1577-DFDF-481A-B07E-377669790472}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0FDACE7-3FDC-4B6E-9DF0-0A1B9FA29E3C}
+		ObjectiFSystem = C:\objectiF Systems\tv_internet
+	EndGlobalSection
+EndGlobal

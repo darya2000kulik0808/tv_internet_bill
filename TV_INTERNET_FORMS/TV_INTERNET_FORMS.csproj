@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Main_window.cs" />
+    <Compile Remove="Main_window.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Main_window.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj" />
+    <ProjectReference Include="..\DB_TV_Internet_Billing\DB_TV_Internet_Billing.csproj" />
+    <ProjectReference Include="..\Payment\Payment.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
+    <ProjectReference Include="..\tv_internet_bill\tv_internet_bill.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FORMS\" />
+  </ItemGroup>
+
+</Project>
