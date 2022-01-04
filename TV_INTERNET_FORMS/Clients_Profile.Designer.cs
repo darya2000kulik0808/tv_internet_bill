@@ -38,6 +38,10 @@ namespace TV_INTERNET_FORMS
             this.lb_price_service = new System.Windows.Forms.Label();
             this.lb_price_per_day = new System.Windows.Forms.Label();
             this.gb_service_information = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label_monthly = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.label_days_d = new System.Windows.Forms.Label();
             this.btn_change_service = new System.Windows.Forms.Button();
@@ -57,10 +61,7 @@ namespace TV_INTERNET_FORMS
             this.label_condition_time = new System.Windows.Forms.Label();
             this.label_not_enough = new System.Windows.Forms.Label();
             this.lb_name_client = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label_monthly = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btn_my_payments = new System.Windows.Forms.Button();
             this.gb_service_information.SuspendLayout();
             this.gb_clients_information.SuspendLayout();
             this.SuspendLayout();
@@ -159,6 +160,7 @@ namespace TV_INTERNET_FORMS
             this.gb_service_information.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gb_service_information.Controls.Add(this.btn_my_payments);
             this.gb_service_information.Controls.Add(this.label4);
             this.gb_service_information.Controls.Add(this.label3);
             this.gb_service_information.Controls.Add(this.label_monthly);
@@ -185,6 +187,42 @@ namespace TV_INTERNET_FORMS
             this.gb_service_information.TabIndex = 6;
             this.gb_service_information.TabStop = false;
             this.gb_service_information.Text = "Connected Service Information";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(272, 206);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 27);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "rubles";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(391, 164);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 27);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "per month";
+            // 
+            // label_monthly
+            // 
+            this.label_monthly.AutoSize = true;
+            this.label_monthly.Location = new System.Drawing.Point(327, 164);
+            this.label_monthly.Name = "label_monthly";
+            this.label_monthly.Size = new System.Drawing.Size(67, 27);
+            this.label_monthly.TabIndex = 16;
+            this.label_monthly.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(224, 164);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 27);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "rubles, or";
             // 
             // btn_refresh
             // 
@@ -417,41 +455,15 @@ namespace TV_INTERNET_FORMS
             this.lb_name_client.TabIndex = 5;
             this.lb_name_client.Text = "Name_Client";
             // 
-            // label2
+            // btn_my_payments
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(224, 164);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 27);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "rubles, or";
-            // 
-            // label_monthly
-            // 
-            this.label_monthly.AutoSize = true;
-            this.label_monthly.Location = new System.Drawing.Point(327, 164);
-            this.label_monthly.Name = "label_monthly";
-            this.label_monthly.Size = new System.Drawing.Size(67, 27);
-            this.label_monthly.TabIndex = 16;
-            this.label_monthly.Text = "label3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(391, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 27);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "per month";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 206);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 27);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "rubles";
+            this.btn_my_payments.Location = new System.Drawing.Point(272, 300);
+            this.btn_my_payments.Name = "btn_my_payments";
+            this.btn_my_payments.Size = new System.Drawing.Size(244, 45);
+            this.btn_my_payments.TabIndex = 19;
+            this.btn_my_payments.Text = "My Payments";
+            this.btn_my_payments.UseVisualStyleBackColor = true;
+            this.btn_my_payments.Click += new System.EventHandler(this.btn_my_payments_Click);
             // 
             // Clients_Profile
             // 
@@ -508,5 +520,6 @@ namespace TV_INTERNET_FORMS
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label_monthly;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_my_payments;
     }
 }

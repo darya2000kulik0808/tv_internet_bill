@@ -74,5 +74,12 @@ namespace TV_INTERNET_FORMS
         {
            tb_selected_service.Text = dgv_services_list_to_choose.CurrentRow.Cells[1].Value.ToString();
         }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            SIGN_IN_WINDOW sign = new SIGN_IN_WINDOW();
+            sign.Show();
+            this.Close();
+        }
     }
 }

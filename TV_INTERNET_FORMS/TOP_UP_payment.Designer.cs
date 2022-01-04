@@ -140,6 +140,11 @@ namespace TV_INTERNET_FORMS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.num_amountC.Location = new System.Drawing.Point(209, 171);
+            this.num_amountC.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.num_amountC.Name = "num_amountC";
             this.num_amountC.Size = new System.Drawing.Size(325, 34);
             this.num_amountC.TabIndex = 5;
@@ -182,6 +187,11 @@ namespace TV_INTERNET_FORMS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.num_amountT.Location = new System.Drawing.Point(220, 67);
+            this.num_amountT.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.num_amountT.Name = "num_amountT";
             this.num_amountT.Size = new System.Drawing.Size(318, 34);
             this.num_amountT.TabIndex = 3;

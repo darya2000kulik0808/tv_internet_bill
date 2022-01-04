@@ -91,5 +91,11 @@ namespace TV_INTERNET_FORMS
             //this.Close();
             top_up.Show();
         }
+
+        private void btn_my_payments_Click(object sender, EventArgs e)
+        {
+            my_payments_window pay = new my_payments_window(client_Id + 1);
+            pay.Show();
+        }
     }
 }

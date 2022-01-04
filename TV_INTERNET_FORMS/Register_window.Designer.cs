@@ -45,6 +45,7 @@ namespace TV_INTERNET_FORMS
             this.dgv_services_list_to_choose = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.tb_selected_service = new System.Windows.Forms.TextBox();
+            this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_services_list_to_choose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,11 +204,23 @@ namespace TV_INTERNET_FORMS
             this.tb_selected_service.Size = new System.Drawing.Size(333, 27);
             this.tb_selected_service.TabIndex = 16;
             // 
+            // btn_back
+            // 
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btn_back.Location = new System.Drawing.Point(532, 420);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(266, 40);
+            this.btn_back.TabIndex = 17;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // Register_window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 472);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.tb_selected_service);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgv_services_list_to_choose);
@@ -251,5 +264,6 @@ namespace TV_INTERNET_FORMS
         private System.Windows.Forms.DataGridView dgv_services_list_to_choose;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_selected_service;
+        private System.Windows.Forms.Button btn_back;
     }
 }
