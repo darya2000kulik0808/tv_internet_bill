@@ -74,7 +74,7 @@ namespace TV_INTERNET_FORMS
 
         private void btn_service_change_Click(object sender, EventArgs e)
         {
-            Service_Change change = new Service_Change(client_Id);
+            ChoiseOfSericeSource change = new ChoiseOfSericeSource(client_Id);
             change.Show();
         }
 
