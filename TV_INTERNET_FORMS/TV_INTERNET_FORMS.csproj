@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\DB_TV_Internet_Billing\DB_TV_Internet_Billing.csproj" />
     <ProjectReference Include="..\Payment\Payment.csproj" />
+    <ProjectReference Include="..\ServiceFromFile\ServiceFromFile.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />
     <ProjectReference Include="..\tv_internet_bill\tv_internet_bill.csproj" />
   </ItemGroup>

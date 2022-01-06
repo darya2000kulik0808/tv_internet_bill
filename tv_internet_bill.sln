@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment", "Payment\Payment.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TV_INTERNET_FORMS", "TV_INTERNET_FORMS\TV_INTERNET_FORMS.csproj", "{3DED1577-DFDF-481A-B07E-377669790472}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceListSource", "ServiceListSource\ServiceListSource.csproj", "{402576AF-2EAA-4D0F-8EDD-C9F7E495DD4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceFromFile", "ServiceFromFile\ServiceFromFile.csproj", "{16837F1C-B52D-4780-8B15-D45BA3EB771E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,12 +55,20 @@ Global
 		{3DED1577-DFDF-481A-B07E-377669790472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DED1577-DFDF-481A-B07E-377669790472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DED1577-DFDF-481A-B07E-377669790472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{402576AF-2EAA-4D0F-8EDD-C9F7E495DD4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{402576AF-2EAA-4D0F-8EDD-C9F7E495DD4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{402576AF-2EAA-4D0F-8EDD-C9F7E495DD4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{402576AF-2EAA-4D0F-8EDD-C9F7E495DD4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B0FDACE7-3FDC-4B6E-9DF0-0A1B9FA29E3C}
 		ObjectiFSystem = C:\objectiF Systems\tv_internet
+		SolutionGuid = {B0FDACE7-3FDC-4B6E-9DF0-0A1B9FA29E3C}
 	EndGlobalSection
 EndGlobal

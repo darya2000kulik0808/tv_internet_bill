@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
 using Services;
 using Clients;
 using Paymentss;
 using tv_internet_billing;
+using ServiceListSource;
+
 
 namespace DB_TV_Internet_Billing
 {
-    public class DB_TV_Internet_Billinig : DbContext
+
+    public class DB_TV_Internet_Billinig : DbContext, IServiceSource
     {
         public DbSet<Service> Services { get; set; }
         public DbSet<Client> Clients { get; set; }

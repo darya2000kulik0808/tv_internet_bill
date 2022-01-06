@@ -74,7 +74,7 @@ namespace TV_INTERNET_FORMS
 
         private void btn_service_change_Click(object sender, EventArgs e)
         {
-            Service_Change change = new Service_Change(client_Id);
+            ChoiseOfSericeSource change = new ChoiseOfSericeSource(client_Id);
             change.Show();
         }
 
@@ -90,6 +90,12 @@ namespace TV_INTERNET_FORMS
             TOP_UP_payment top_up = new TOP_UP_payment(client_Id + 1);
             //this.Close();
             top_up.Show();
+        }
+
+        private void btn_my_payments_Click(object sender, EventArgs e)
+        {
+            my_payments_window pay = new my_payments_window(client_Id + 1);
+            pay.Show();
         }
     }
 }

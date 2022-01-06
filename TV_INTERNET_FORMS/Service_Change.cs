@@ -10,18 +10,21 @@ using System.Windows.Forms;
 using DB_TV_Internet_Billing;
 using Clients;
 using Services;
+using ServiceListSource;
 
 namespace TV_INTERNET_FORMS
 {
     public partial class Service_Change : Form
     {
+        IServiceSource Data;
         DB_TV_Internet_Billinig DataSet;
         int id;
-        public Service_Change(int client_id)
+        public Service_Change(IServiceSource data, int client_id)
         {
             InitializeComponent();
-            DataSet = new DB_TV_Internet_Billinig();
+            Data = data;
             id = client_id;
+            DataSet = new DB_TV_Internet_Billinig();
         }
 
         private void DGV_Change_service_DoubleClick(object sender, EventArgs e)
@@ -48,7 +51,7 @@ namespace TV_INTERNET_FORMS
             DGV_Change_service.Columns[3].Name = "Цена услуги (в рублях)";
             DGV_Change_service.Columns[4].Name = "Период взимания оплаты (в днях)";
             DGV_Change_service.Columns[5].Name = "Цена подключения услуги (в рублях)";
-            foreach (Service t in DataSet.GetServices())
+            foreach (Service t in Data.GetServices())
             {
                 try
                 {
