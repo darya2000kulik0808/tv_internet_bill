@@ -8,12 +8,13 @@ using Clients;
 using Paymentss;
 using tv_internet_billing;
 using ServiceListSource;
-
+using DecreasingBalance;
+using Clients_n_ServieListsForTest;
 
 namespace DB_TV_Internet_Billing
 {
 
-    public class DB_TV_Internet_Billinig : DbContext, IServiceSource
+    public class DB_TV_Internet_Billinig : DbContext, IServiceSource, IClient_List
     {
         public DbSet<Service> Services { get; set; }
         public DbSet<Client> Clients { get; set; }
@@ -74,7 +75,8 @@ namespace DB_TV_Internet_Billing
         public void decrease_balance( DateTime curr_date)
         {
             DB_TV_Internet_Billinig data = new DB_TV_Internet_Billinig();
-
+            Decrease_Limited lim = new Decrease_Limited();
+            Decrease_Unlimited unlim = new Decrease_Unlimited();
 
             List<Client> clients = data.GetClients();
             List<Service> services = data.GetServices();
@@ -83,10 +85,14 @@ namespace DB_TV_Internet_Billing
             {
                 foreach (Service service in services)
                 {
-                    if (client.ID_service == service.ID_service)
+                    if (client.ID_service == service.ID_service && service.limit == false)
                     {
-                        client.Balance = TV_Internet_Billing.decrease_Client_BALANCE(
-                            Decimal.ToInt32(client.Balance), Decimal.ToInt32(service.Price_service),client.Time_balance , curr_date);
+                        client.Balance = unlim.decrease_Client_BALANCE(client.ID_client);
+                        client.Time_balance = curr_date;
+                    }
+                    else if(client.ID_service == service.ID_service && service.limit == true)
+                    {
+                        client.Balance = lim.decrease_Client_BALANCE(client.ID_client);
                         client.Time_balance = curr_date;
                     }
                 }
@@ -116,6 +122,88 @@ namespace DB_TV_Internet_Billing
                 Time_balance = DateTime.Now, Client_login =Client_Login, Client_password = Client_Pass};
             data.Clients.Add(client);
             data.SaveChanges();
+        }
+    }
+
+
+    public class Decrease_Unlimited : IDecreasingBalance
+    {
+        public int decrease_Client_BALANCE(int client_id)
+        {
+            DB_TV_Internet_Billinig db = new DB_TV_Internet_Billinig();
+
+            Clients_n_Service_Lists cs_lists = new Clients_n_Service_Lists();
+
+            List<Client> client = cs_lists.GetClients();
+            List<Service> service = cs_lists.GetServices();
+
+            DateTime current_date = DateTime.Now;
+            DateTime date_base = DateTime.Now;
+            int balance = 0;
+            int day_pay = 0;
+
+            foreach (Client mem in client)
+            {
+                foreach (Service s in service)
+                {
+                    if (mem.ID_client == client_id && mem.ID_service == s.ID_service)
+                    {
+                        date_base = mem.Time_balance;
+                        balance = Decimal.ToInt32(mem.Balance);
+                        day_pay = Decimal.ToInt32(s.Price_service);
+                    }
+                }
+            }
+
+            int compare_result = DateTime.Compare(current_date.Date, date_base.Date);
+            if (compare_result > 0 && balance != 0)
+            {
+                balance -= day_pay;
+                return balance;
+            }
+            else return balance;
+        }
+
+    }
+
+    public class Decrease_Limited : IDecreasingBalance
+    {
+        public int decrease_Client_BALANCE(int client_id)
+        {
+            DB_TV_Internet_Billinig db = new DB_TV_Internet_Billinig();
+
+            Clients_n_Service_Lists cs_lists = new Clients_n_Service_Lists();
+
+            List<Client> client = cs_lists.GetClients();
+            List<Service> service = cs_lists.GetServices();
+
+            DateTime current_date = DateTime.Now;
+            DateTime date_base = DateTime.Now;
+            int balance = 0;
+            int limits_client = 0;
+            int price_limit = 0;
+
+            foreach (Client mem in client)
+            {
+                foreach (Service s in service)
+                {
+                    if (mem.ID_client == client_id && mem.ID_service == s.ID_service)
+                    {
+                        date_base = mem.Time_balance;
+                        balance = Decimal.ToInt32(mem.Balance);
+                        limits_client = mem.Limits;
+                        price_limit = Decimal.ToInt32(s.Price_for_limit);
+                    }
+                }
+            }
+
+            int compare_result = DateTime.Compare(current_date.Date, date_base.Date);
+            if (compare_result > 0 && balance != 0)
+            {
+                balance = balance - (limits_client*price_limit);
+                return balance;
+            }
+            else return balance;
         }
     }
 }

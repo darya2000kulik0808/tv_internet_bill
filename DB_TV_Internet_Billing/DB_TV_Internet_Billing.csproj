@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Clients_n_ServieListsForTest\Clients_n_ServieListsForTest.csproj" />
     <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\Payment\Payment.csproj" />
     <ProjectReference Include="..\ServiceListSource\ServiceListSource.csproj" />

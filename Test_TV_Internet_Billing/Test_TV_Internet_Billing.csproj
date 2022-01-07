@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Clients_n_ServieListsForTest\Clients_n_ServieListsForTest.csproj" />
     <ProjectReference Include="..\DB_TV_Internet_Billing\DB_TV_Internet_Billing.csproj" />
     <ProjectReference Include="..\tv_internet_bill\tv_internet_bill.csproj" />
   </ItemGroup>
