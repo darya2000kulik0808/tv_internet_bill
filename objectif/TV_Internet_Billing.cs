@@ -21,17 +21,6 @@ namespace tv_internet_billing
 
         }
 
-        public static int decrease_Client_BALANCE(int balance, int day_pay, DateTime current_date, DateTime date_database)
-        {
-            int compare_result = DateTime.Compare(current_date.Date, date_database.Date);
-            if (compare_result < 0 && balance != 0)
-            {
-                balance -= day_pay;
-                return balance;
-            }
-            else return balance;
-        }
-
         public static int increase_Client_BALANCE(int current, int additional_sum)
         {
             int itog = 0;

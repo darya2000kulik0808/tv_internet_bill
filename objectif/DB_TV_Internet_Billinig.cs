@@ -8,12 +8,12 @@ using Clients;
 using Paymentss;
 using tv_internet_billing;
 using ServiceListSource;
-
+using Clients_n_ServieListsForTest;
 
 namespace DB_TV_Internet_Billing
 {
 
-    public class DB_TV_Internet_Billinig : DbContext, IServiceSource
+    public class DB_TV_Internet_Billinig : DbContext, IServiceSource, IClient_List
     {
         public DbSet<Service> Services { get; set; }
         public DbSet<Client> Clients { get; set; }
@@ -74,19 +74,28 @@ namespace DB_TV_Internet_Billing
         public void decrease_balance( DateTime curr_date)
         {
             DB_TV_Internet_Billinig data = new DB_TV_Internet_Billinig();
-
-
+            Decrease_Limited lim = new Decrease_Limited();
+            Decrease_Unlimited unlim = new Decrease_Unlimited();
+            int compare_result = 0;
             List<Client> clients = data.GetClients();
             List<Service> services = data.GetServices();
 
             foreach (Client client in clients)
             {
+                compare_result = DateTime.Compare(DateTime.Now.Date, client.Time_balance.Date);
+
                 foreach (Service service in services)
                 {
-                    if (client.ID_service == service.ID_service)
+                    if (client.ID_service == service.ID_service && service.limit == false)
                     {
-                        client.Balance = TV_Internet_Billing.decrease_Client_BALANCE(
-                            Decimal.ToInt32(client.Balance), Decimal.ToInt32(service.Price_service),client.Time_balance , curr_date);
+                        client.Balance = unlim.decreasing(Decimal.ToInt32(client.Balance), Decimal.ToInt32(service.Price_service),
+                                                          client.Limits, Decimal.ToInt32(service.Price_for_limit), compare_result);
+                        client.Time_balance = curr_date;
+                    }
+                    else if(client.ID_service == service.ID_service && service.limit == true)
+                    {
+                        client.Balance = lim.decreasing(Decimal.ToInt32(client.Balance), Decimal.ToInt32(service.Price_service),
+                                                          client.Limits, Decimal.ToInt32(service.Price_for_limit), compare_result);
                         client.Time_balance = curr_date;
                     }
                 }
@@ -94,7 +103,7 @@ namespace DB_TV_Internet_Billing
 
             data.Clients.UpdateRange(clients);
             data.SaveChanges();
-  
+
         }
 
         public void add_new_payment_record(int ID_Client, int ID_Payment_Method, decimal Price_to_Pay, bool Accepted, DateTime Date_Time_payment)
@@ -118,4 +127,45 @@ namespace DB_TV_Internet_Billing
             data.SaveChanges();
         }
     }
+
+
+   public  abstract class Decrease
+    {
+        public int decreasing( int balance, int day_pay, int limits_client, int price_limit,int compare_date)
+        {
+
+           return decreasing_balance( balance, day_pay, limits_client, price_limit, compare_date);
+        }
+
+        public abstract int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit, int compare_date);
+    }
+
+
+    public  class Decrease_Unlimited : Decrease
+    {
+
+        public override int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit, int compare_date)
+        {
+            if (compare_date > 0 && balance != 0)
+            {
+                balance -= day_pay;
+                return balance;
+            }
+            else return balance;
+        }
+    }
+
+    public class Decrease_Limited : Decrease
+    {
+        public override int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit, int compare_date)
+        {
+            if (compare_date > 0 && balance != 0)
+            {
+                balance = balance - (limits_client * price_limit);
+                return balance;
+            }
+            else return balance;
+        }
+     }
 }
+
