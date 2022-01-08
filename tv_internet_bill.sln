@@ -21,9 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceListSource", "Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFromFile", "ServiceFromFile\ServiceFromFile.csproj", "{16837F1C-B52D-4780-8B15-D45BA3EB771E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecreasingBalance", "DecreasingBalance\DecreasingBalance.csproj", "{9462E4D8-77A4-435E-B202-B25441D058D4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients_n_ServieListsForTest", "Clients_n_ServieListsForTest\Clients_n_ServieListsForTest.csproj", "{AF3B8F58-7EA3-409D-B40B-9EB207DE27CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients_n_ServieListsForTest", "Clients_n_ServieListsForTest\Clients_n_ServieListsForTest.csproj", "{AF3B8F58-7EA3-409D-B40B-9EB207DE27CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +65,6 @@ Global
 		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16837F1C-B52D-4780-8B15-D45BA3EB771E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9462E4D8-77A4-435E-B202-B25441D058D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9462E4D8-77A4-435E-B202-B25441D058D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9462E4D8-77A4-435E-B202-B25441D058D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9462E4D8-77A4-435E-B202-B25441D058D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF3B8F58-7EA3-409D-B40B-9EB207DE27CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF3B8F58-7EA3-409D-B40B-9EB207DE27CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF3B8F58-7EA3-409D-B40B-9EB207DE27CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -80,7 +74,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B0FDACE7-3FDC-4B6E-9DF0-0A1B9FA29E3C}
 		ObjectiFSystem = C:\objectiF Systems\tv_internet
+		SolutionGuid = {B0FDACE7-3FDC-4B6E-9DF0-0A1B9FA29E3C}
 	EndGlobalSection
 EndGlobal

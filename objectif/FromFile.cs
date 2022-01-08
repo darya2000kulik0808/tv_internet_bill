@@ -25,8 +25,9 @@ namespace ServiceFromFile
                 decimal Price_Service = Decimal.Parse(arr1[3]);
                 int Period_Payment = Int32.Parse(arr1[4]); 
                 decimal Price_Connection = Decimal.Parse(arr1[5]);
-
-                list.Add(new Service(ID_SERVICE, Name_Service, Description_Service, Price_Service, Period_Payment, Price_Connection));
+                decimal Price_for_limit = Decimal.Parse(arr1[6]);
+                bool limit = Convert.ToBoolean(arr1[7]);
+                list.Add(new Service(ID_SERVICE, Name_Service, Description_Service, Price_Service, Period_Payment, Price_Connection, Price_for_limit, limit));
             }
             return list;
         }

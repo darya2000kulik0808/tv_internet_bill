@@ -6,7 +6,9 @@ namespace Clients
     public class Client
     {
         public Client() { }
-        public Client(int ID_CLIENT, string Name_Client, DateTime Client_Birthday, string E_Mail, decimal Client_Balance, int ID_SERVICE, DateTime Time_Balance, string Client_Login, string Client_Pass)
+        public Client(int ID_CLIENT, string Name_Client, DateTime Client_Birthday, string E_Mail, 
+                      decimal Client_Balance, int ID_SERVICE, DateTime Time_Balance, string Client_Login, 
+                      string Client_Pass, int limits)
         {
             ID_client = ID_CLIENT;
             Name_client = Name_Client;
@@ -17,6 +19,7 @@ namespace Clients
             Time_balance = Time_Balance;
             Client_login = Client_Login;
             Client_password = Client_Pass;
+            Limits = limits;
         }
 
         [Key]
@@ -29,5 +32,6 @@ namespace Clients
         public DateTime Time_balance { get; set; }
         public string Client_login { get; set; }
         public string Client_password { get; set; }
+        public int Limits { get; set; }
     }
 }

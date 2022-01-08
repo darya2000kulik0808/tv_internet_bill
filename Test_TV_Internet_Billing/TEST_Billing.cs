@@ -1,8 +1,11 @@
 using NUnit.Framework;
 using tv_internet_billing;
 using System;
+using System.Collections.Generic;
 using DB_TV_Internet_Billing;
 using Clients_n_ServieListsForTest;
+using Services;
+using Clients;
 
 namespace Test_TV_Internet_Billing
 {
@@ -11,12 +14,25 @@ namespace Test_TV_Internet_Billing
         int itog, days_left, balance, current_sum, add_sum, day_pay;
         Decrease_Unlimited unlim = new Decrease_Unlimited();
         Decrease_Limited lim = new Decrease_Limited();
+        List<Client> clients;
+        List<Service> services;
+        int compare_result;
+        int[] arr_equal;
+
         [SetUp]
         public void Setup()
         {
             current_sum = 123;
             add_sum = 4738;
             day_pay = 22;
+
+            Clients_n_Service_Lists cs_lists = new Clients_n_Service_Lists();
+
+            clients = cs_lists.GetClients();
+            services = cs_lists.GetServices();
+            compare_result = 0;
+
+            arr_equal = new int[6] { 470, 550, 890, 320, 350, 150 };
         }
 
         [Test]
@@ -38,20 +54,29 @@ namespace Test_TV_Internet_Billing
         }
 
         [Test]
-        public void TEST_Unlimited_decrease_Client_BALANCE()
+        public void TEST_Decreasing()
         {
-            Assert.AreEqual(470, unlim.decrease_Client_BALANCE(1));
-            Assert.AreEqual(550, unlim.decrease_Client_BALANCE(2));
-            Assert.AreEqual(890, unlim.decrease_Client_BALANCE(3));
-            Assert.AreEqual(320, unlim.decrease_Client_BALANCE(4));
-        }
 
-        [Test]
-        public void TEST_Limited_decrease_Client_BALANCE()
-        {
-            Assert.AreEqual(350, lim.decrease_Client_BALANCE(5));
-            Assert.AreEqual(150, lim.decrease_Client_BALANCE(6));
+            foreach (Client client in clients)
+            {
+                compare_result = DateTime.Compare(DateTime.Now.Date, client.Time_balance.Date);
 
+                foreach (Service service in services)
+                {
+                    if (client.ID_service == service.ID_service && service.limit == false)
+                    {
+                        client.Balance = unlim.decreasing(Decimal.ToInt32(client.Balance), Decimal.ToInt32(service.Price_service),
+                                                          client.Limits, Decimal.ToInt32(service.Price_for_limit), compare_result);
+                        Assert.AreEqual(arr_equal[client.ID_client-1], client.Balance);
+                    }
+                    else if (client.ID_service == service.ID_service && service.limit == true)
+                    {
+                        client.Balance = lim.decreasing(Decimal.ToInt32(client.Balance), Decimal.ToInt32(service.Price_service),
+                                                          client.Limits, Decimal.ToInt32(service.Price_for_limit), compare_result);
+                        Assert.AreEqual(arr_equal[client.ID_client - 1], client.Balance);
+                    }
+                }
+            }
         }
     }
 }
