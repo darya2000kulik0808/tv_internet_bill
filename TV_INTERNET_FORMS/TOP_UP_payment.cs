@@ -12,6 +12,7 @@ using Clients;
 using Services;
 using Paymentss;
 using tv_internet_billing;
+using Mail;
 
 namespace TV_INTERNET_FORMS
 {
@@ -19,11 +20,13 @@ namespace TV_INTERNET_FORMS
     {
         DB_TV_Internet_Billinig dataSet;
         int Client_id;
+        SendingMail email;
         public TOP_UP_payment(int client_id)
         {
             InitializeComponent();
             dataSet = new DB_TV_Internet_Billinig();
             Client_id = client_id;
+            email = new SendingMail();
         }
 
         private void btn_pay_Click(object sender, EventArgs e)
@@ -40,6 +43,17 @@ namespace TV_INTERNET_FORMS
                     price = Decimal.Parse(num_amountT.Value.ToString());
                 }
             }
+
+            if(CB_mail.Checked)
+            {
+                List<Methods_pay> method = dataSet.Methods_Pay.ToList();
+
+                foreach (var m in method)
+                    if((comboBox_method_pay.SelectedIndex + 1) == m.ID_method)
+                    email.SendEMail(tb_mail_send.Text, Decimal.ToInt32(price), m.Name_method);
+
+            }
+
             dataSet.add_new_payment_record(Client_id, comboBox_method_pay.SelectedIndex +1, price, true, DateTime.Now);
             DialogResult results = MessageBox.Show("The balance has been successfully replenished!", "Top Up!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (results == DialogResult.OK)
@@ -51,6 +65,8 @@ namespace TV_INTERNET_FORMS
 
         private void TOP_UP_payment_Load(object sender, EventArgs e)
         {
+            tb_mail_send.Visible = false;
+            label.Visible = false;
             comboBox_method_pay.DataSource = dataSet.Methods_Pay.ToList();
             comboBox_method_pay.ValueMember = "ID_method";
             comboBox_method_pay.DisplayMember = "Name_method";
@@ -70,6 +86,20 @@ namespace TV_INTERNET_FORMS
                     panel_card.Enabled = false;
                     panel_telephone.Enabled = true;
                 }
+            }
+        }
+
+        private void CB_mail_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_mail.Checked)
+            {
+                tb_mail_send.Visible = true;
+                label.Visible = true;
+            }
+            else
+            {
+                tb_mail_send.Visible = false;
+                label.Visible = false;
             }
         }
     }

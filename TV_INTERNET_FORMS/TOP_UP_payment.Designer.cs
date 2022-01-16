@@ -47,6 +47,8 @@ namespace TV_INTERNET_FORMS
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_pay = new System.Windows.Forms.Button();
+            this.tb_mail_send = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
             this.panel_card.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_amountC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_amountT)).BeginInit();
@@ -78,6 +80,7 @@ namespace TV_INTERNET_FORMS
             this.CB_mail.TabIndex = 1;
             this.CB_mail.Text = "Send me receipt via E-mail";
             this.CB_mail.UseVisualStyleBackColor = true;
+            this.CB_mail.CheckedChanged += new System.EventHandler(this.CB_mail_CheckedChanged);
             // 
             // lb_method
             // 
@@ -278,7 +281,7 @@ namespace TV_INTERNET_FORMS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_pay.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_pay.Location = new System.Drawing.Point(49, 285);
+            this.btn_pay.Location = new System.Drawing.Point(49, 385);
             this.btn_pay.Name = "btn_pay";
             this.btn_pay.Size = new System.Drawing.Size(260, 38);
             this.btn_pay.TabIndex = 5;
@@ -286,11 +289,29 @@ namespace TV_INTERNET_FORMS
             this.btn_pay.UseVisualStyleBackColor = true;
             this.btn_pay.Click += new System.EventHandler(this.btn_pay_Click);
             // 
+            // tb_mail_send
+            // 
+            this.tb_mail_send.Location = new System.Drawing.Point(35, 300);
+            this.tb_mail_send.Name = "tb_mail_send";
+            this.tb_mail_send.Size = new System.Drawing.Size(274, 27);
+            this.tb_mail_send.TabIndex = 6;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(83, 274);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(169, 20);
+            this.label.TabIndex = 7;
+            this.label.Text = "Enter your E-mail adress";
+            // 
             // TOP_UP_payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 454);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.tb_mail_send);
             this.Controls.Add(this.btn_pay);
             this.Controls.Add(this.panel_telephone);
             this.Controls.Add(this.panel_card);
@@ -332,5 +353,7 @@ namespace TV_INTERNET_FORMS
         private System.Windows.Forms.Button btn_pay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tb_mail_send;
+        private System.Windows.Forms.Label label;
     }
 }

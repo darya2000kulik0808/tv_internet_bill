@@ -4,7 +4,7 @@ namespace DecreasingBalance
 {
     public interface IDecreasingBalance
     {
-        int decrease_Client_BALANCE(int client_id);
+        int decreasing(int balance, int day_pay, int limits_client, int price_limit, int compare_date);
     }
 
 }

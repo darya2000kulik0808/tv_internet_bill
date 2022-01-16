@@ -51,6 +51,15 @@ namespace DB_TV_Internet_Billing
         }
         #endregion
 
+        //public string get_mail_by_client(int client_id)
+        //{
+        //    DB_TV_Internet_Billinig data = new DB_TV_Internet_Billinig();
+
+        //    var client_email = from client in data.Clients where client.ID_client == client_id select client.E_mail;
+
+        //    return client_email.ToString();
+        //}
+
         public void change_service_for_client(int service_id, int client_id)
         {
             DB_TV_Internet_Billinig data = new DB_TV_Internet_Billinig();

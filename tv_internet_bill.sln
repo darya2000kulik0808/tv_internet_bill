@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients_n_ServieListsForTes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecreasingBalance", "DecreasingBalance\DecreasingBalance.csproj", "{173978C1-5B1C-4B31-82FA-4282D35E0B49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mail", "Mail\Mail.csproj", "{5A0B3227-9FE3-40A4-9175-233CAE60984C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,12 +77,16 @@ Global
 		{173978C1-5B1C-4B31-82FA-4282D35E0B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{173978C1-5B1C-4B31-82FA-4282D35E0B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{173978C1-5B1C-4B31-82FA-4282D35E0B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0B3227-9FE3-40A4-9175-233CAE60984C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0B3227-9FE3-40A4-9175-233CAE60984C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0B3227-9FE3-40A4-9175-233CAE60984C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0B3227-9FE3-40A4-9175-233CAE60984C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		ObjectiFSystem = C:\objectiF Systems\tv_internet
 		SolutionGuid = {B0FDACE7-3FDC-4B6E-9DF0-0A1B9FA29E3C}
+		ObjectiFSystem = C:\objectiF Systems\tv_internet
 	EndGlobalSection
 EndGlobal

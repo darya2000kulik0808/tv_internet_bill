@@ -9,6 +9,7 @@ using Paymentss;
 using tv_internet_billing;
 using ServiceListSource;
 using Clients_n_ServieListsForTest;
+using DecreasingBalance;
 
 namespace DB_TV_Internet_Billing
 {
@@ -129,42 +130,35 @@ namespace DB_TV_Internet_Billing
     }
 
 
-   public  abstract class Decrease
+   public  abstract class Decrease : IDecreasingBalance
     {
         public int decreasing( int balance, int day_pay, int limits_client, int price_limit,int compare_date)
         {
-
-           return decreasing_balance( balance, day_pay, limits_client, price_limit, compare_date);
+            if (compare_date > 0 && balance != 0)
+            {
+                   return decreasing_balance( balance, day_pay, limits_client, price_limit);
+            }
+            else return balance;        
         }
 
-        public abstract int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit, int compare_date);
+        public abstract int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit);
     }
 
 
     public  class Decrease_Unlimited : Decrease
     {
-
-        public override int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit, int compare_date)
+        public override int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit)
         {
-            if (compare_date > 0 && balance != 0)
-            {
-                balance -= day_pay;
-                return balance;
-            }
-            else return balance;
+             return  balance -= day_pay;
         }
     }
 
     public class Decrease_Limited : Decrease
     {
-        public override int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit, int compare_date)
+        public override int decreasing_balance( int balance, int day_pay, int limits_client, int price_limit)
         {
-            if (compare_date > 0 && balance != 0)
-            {
-                balance = balance - (limits_client * price_limit);
-                return balance;
-            }
-            else return balance;
+               return balance - (limits_client * price_limit);
+
         }
      }
 }
